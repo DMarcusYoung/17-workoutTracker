@@ -23,35 +23,13 @@ module.exports = {
                 "reps" : data.reps,
                 "sets" : data.sets
                 }
-            ] 
-            }}, { new: true })
-            console.log('hit', newExercise)
+            ]}}, { new: true })
             return res.status(200).json(newExercise)
         } catch (e) {
             return res.status(403).json({ e })
         }
-        // const data = req.body
-        // console.log(data.name)
-        // try {
-        //     // updateOne only returns old object
-        //     // Use findOneAndUpdate to return updated object
-        //     const newExercise = await Workout.findOneAndUpdate({ _id: id }, {exercise: [{
-        //         type: data.type,
-        //         name: data.name,
-        //         duration: data.duration,
-        //         weight: data.weight,
-        //         reps: data.reps,
-        //         sets: data.sets
-        //     }]}, { returnNewDocument: true })
-        //     console.log(newExercise)
-        //     return res.status(200).json(newExercise)
-        // } catch(e) {
-        //     return res.status(403).json({ e })
-        // }
     },
     createWorkout: async (req, res) => {
-        // const data = req.body
-        // console.log('data', data)
         try{
             const newWorkout = await new Workout().save()
             return res.status(200).json(newWorkout)
